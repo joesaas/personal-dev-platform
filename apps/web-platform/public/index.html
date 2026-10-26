@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>个人开发平台</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+  <h1>个人开发平台</h1>
+  <div id="user-area" style="display:none"><span id="user-name"></span> <button class="secondary" id="logout-btn">退出</button></div>
+</header>
+
+<div id="login-view" class="card" style="max-width:420px;margin:40px auto">
+  <h2>登录</h2>
+  <p class="note">只给 li 自己用。口令来自服务器环境变量，未设置时看服务器启动日志里的一次性口令。</p>
+  <label>用户名</label><input id="login-user" value="li">
+  <label>密码</label><input id="login-pass" type="password">
+  <p><button id="login-btn">登录</button></p>
+  <p id="login-error" class="error"></p>
+</div>
+
+<div id="app-view" style="display:none">
+  <div class="layout">
+    <nav>
+      <button data-lab="code" class="active">代码实验室</button>
+      <button data-lab="openrouter">OpenRouter Guardrails 实验室</button>
+      <button data-lab="github">GitHub Demo 实验室</button>
+    </nav>
+    <main>
+      <section class="lab active" id="lab-code">
+        <h2>代码实验室</h2>
+        <p class="note">只在 Node vm 沙箱里跑纯 JS，不给 require、process、文件和网络能力，超时 2 秒。</p>
+        <div class="split">
+          <div><label>代码</label><textarea id="code-input">console.log("Hello from personal-dev-platform");
+console.log(1 + 2);</textarea><p><button id="run-btn">运行</button></p></div>
+          <div><label>输出</label><pre id="code-output"></pre><label>错误</label><pre id="code-error"></pre></div>
+        </div>
+      </section>
+
+      <section class="lab" id="lab-openrouter">
+        <h2>OpenRouter Guardrails 实验室</h2>
+        <p class="note">本实验室实现的是围绕 OpenRouter 调用的 Guardrails 检查，不是已核实的 OpenRouter 官方 Guardrails 产品。API Key 只存在你的浏览器 localStorage，不发给本平台服务器。</p>
+        <label>API Key</label><input id="or-key" type="password" placeholder="sk-or-...">
+        <label>模型</label><input id="or-model" value="openai/gpt-4o-mini">
+        <label>系统提示</label><textarea id="or-system" style="min-height:80px">You are a helpful assistant.</textarea>
+        <label>用户提示</label><textarea id="or-user" style="min-height:80px">用一句话介绍 TypeScript。</textarea>
+        <label>禁词（逗号分隔）</label><input id="or-blocked" placeholder="例如：密码, 密钥">
+        <label>输入禁止模式（正则，可选）</label><input id="or-in-pattern" placeholder="例如：\\d{11}">
+        <label>输出禁止模式（正则，可选）</label><input id="or-out-pattern">
+        <label>输出最长字数</label><input id="or-max" type="number" value="500">
+        <label><input type="checkbox" id="or-json" style="width:auto"> 输出必须为 JSON</label>
+        <p><button id="or-send">发送并检查</button></p>
+        <h3>Guardrails 检查</h3><div id="or-rules"></div>
+        <h3>模型输出</h3><pre id="or-output"></pre>
+      </section>
+
+      <section class="lab" id="lab-github">
+        <h2>GitHub Demo 实验室</h2>
+        <p class="note">只查询和展示，不自动 clone、安装或运行陌生仓库的代码。</p>
+        <label>仓库（owner/repo 或完整链接）</label><input id="gh-input" value="joesaas/personal-dev-platform">
+        <p><button id="gh-btn">获取仓库信息</button></p>
+        <div id="gh-result"></div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>

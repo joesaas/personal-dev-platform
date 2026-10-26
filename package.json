@@ -1,1 +1,23 @@
-{"description":"Personal development platform: one Google-style monorepo for all of li's own tools, apps and shared libraries.","devDependencies":{"@types/node":"^22.20.5","typescript":"^5.7.0"},"engines":{"node":">=22"},"name":"personal-dev-platform","private":true,"scripts":{"build":"npm run build -w @platform/shared && npm run build -w @platform/example-app","check":"node tools/check-structure.mjs","test":"npm run build && npm run test --workspaces --if-present"},"type":"module","version":"0.1.0","workspaces":["apps/*","packages/*"]}
+{
+  "description": "Personal development platform: one Google-style monorepo for all of li's own tools, apps and shared libraries.",
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "name": "personal-dev-platform",
+  "private": true,
+  "scripts": {
+    "build": "npm run build -w @platform/shared && npm run build -w @platform/example-app && npm run build -w @platform/web-platform",
+    "check": "node tools/check-structure.mjs",
+    "test": "npm run build && npm run test --workspaces --if-present"
+  },
+  "type": "module",
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}
