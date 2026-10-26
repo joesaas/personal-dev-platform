@@ -14,7 +14,7 @@
 
 ## 目录
 
-- `apps/`：可独立运行的应用。示例：`apps/example-app`，只证明骨架能跑通；第一个真实应用 `apps/web-platform/`（Web 端个人开发平台：登录 + 代码实验室 + OpenRouter Guardrails 实验室 + GitHub Demo 实验室），见 `docs/platform-prd.md`。
+- `apps/`：可独立运行的应用。示例：`apps/example-app`，只证明骨架能跑通；第一个真实应用是 Web 端个人开发平台，前后端分离：`apps/web/`（Vue 前端）+ `apps/api/`（Express 后端），含登录 + 代码实验室 + OpenRouter Guardrails 实验室 + GitHub Demo 实验室，见 `docs/platform-prd.md` 与 `docs/platform-architecture.md`。
 - `packages/`：共享库。示例：`packages/shared`，所有应用共用的纯函数和类型。
 - `tools/`：仓库级脚本，不发布成包。示例：`tools/check-structure.mjs`，校验目录结构。
 - `infra/`：部署与运行配置占位，第一个真实部署进来时再填，不先写死 EC2 或域名。

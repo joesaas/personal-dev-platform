@@ -10,7 +10,7 @@
   "name": "personal-dev-platform",
   "private": true,
   "scripts": {
-    "build": "npm run build -w @platform/shared && npm run build -w @platform/example-app && npm run build -w @platform/web-platform",
+    "build": "npm run build -w @platform/shared && npm run build -w @platform/example-app && npm run build -w @platform/api && npm run build -w @platform/web",
     "check": "node tools/check-structure.mjs",
     "test": "npm run build && npm run test --workspaces --if-present"
   },

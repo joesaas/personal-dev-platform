@@ -1,5 +1,7 @@
 # Web 端个人开发平台：需求原型
 
+> 已确认版说明（2026-10-26）：技术栈已改为 Node TS + Express + Vue 前后端分离、UI 方向 A 实验室工作台；旧的零依赖原生实现已删除，本文件功能范围不变，技术细节以 platform-architecture.md / platform-detailed-design.md 为准。
+
 - 适用：li 自己用，只给一个人用，不做多租户。
 - 底座：现有 monorepo（npm workspaces + TypeScript，apps / packages / tools / infra），新应用进 `apps/web-platform/`，共享代码进 `packages/`。
 - 状态：v0.1 原型已实现，见 `docs/platform-implementation.md`。

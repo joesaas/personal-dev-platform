@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "express": "^4.21.2",
+    "@platform/shared": "0.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21"
+  },
+  "main": "dist/server.js",
+  "name": "@platform/api",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/server.js",
+    "test": "node --test dist/runner.test.js dist/github.test.js dist/auth.test.js"
+  },
+  "type": "module",
+  "version": "0.1.0"
+}

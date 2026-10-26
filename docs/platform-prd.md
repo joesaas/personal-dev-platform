@@ -1,5 +1,7 @@
 # Web 端个人开发平台：PRD
 
+> 已确认版说明（2026-10-26）：技术栈已改为 Node TS + Express + Vue 前后端分离、UI 方向 A 实验室工作台；旧的零依赖原生实现已删除，本文件功能范围不变，技术细节以 platform-architecture.md / platform-detailed-design.md 为准。
+
 - 版本：v0.1
 - 用户：li 一人。
 - 仓库：https://github.com/joesaas/personal-dev-platform
