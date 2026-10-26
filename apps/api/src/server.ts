@@ -10,6 +10,7 @@ import { fetchRepoInfo, parseRepo } from "./github.js";
 const here = dirname(fileURLToPath(import.meta.url));
 const webDist = join(here, "..", "..", "web", "dist");
 const port = Number(process.env.PORT ?? 3001);
+const host = process.env.HOST ?? "0.0.0.0";
 const username = process.env.DEV_PLATFORM_USER ?? "li";
 const password = process.env.DEV_PLATFORM_PASSWORD ?? (() => {
   const generated = randomBytes(16).toString("hex");
@@ -89,7 +90,7 @@ if (existsSync(webDist)) {
   });
 }
 
-app.listen(port, () => {
-  console.log(`Personal dev platform API listening on http://localhost:${port}`);
+app.listen(port, host, () => {
+  console.log(`Personal dev platform API listening on http://${host}:${port}`);
   if (existsSync(webDist)) console.log(`Serving frontend from ${webDist}`);
 });

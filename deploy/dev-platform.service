@@ -1,0 +1,27 @@
+# 个人开发平台 systemd 用户服务模板
+# 用法（服务器上，见 deploy/README.md）：
+#   mkdir -p ~/.config/systemd/user ~/.config/dev-platform
+#   cp deploy/dev-platform.service ~/.config/systemd/user/
+#   # 把下面 ExecStart 里的仓库路径改成你的实际路径；node 若走 nvm，把 /usr/bin/node 改成实际 node 路径
+#   systemctl --user daemon-reload
+#   systemctl --user enable --now dev-platform
+#   loginctl enable-linger   # 否则登出后用户服务会被停掉
+# 口令文件：~/.config/dev-platform/dev-platform.env，600 权限，不进仓库，格式见 deploy/dev-platform.env.example
+[Unit]
+Description=Personal dev platform (Express API + Vue frontend)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/personal-dev-platform
+EnvironmentFile=-%h/.config/dev-platform/dev-platform.env
+Environment=HOST=127.0.0.1
+Environment=PORT=3001
+Environment=DEV_PLATFORM_USER=li
+ExecStart=/usr/bin/node apps/api/dist/server.js
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target
