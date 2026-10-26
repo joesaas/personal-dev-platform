@@ -1,0 +1,1 @@
+{"main":"dist/index.js","name":"@platform/shared","private":true,"scripts":{"build":"tsc -p tsconfig.json","test":"node --test dist/index.test.js"},"type":"module","types":"dist/index.d.ts","version":"0.1.0"}

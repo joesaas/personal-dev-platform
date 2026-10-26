@@ -1,0 +1,1 @@
+{"dependencies":{"@platform/shared":"*"},"main":"dist/index.js","name":"@platform/example-app","private":true,"scripts":{"build":"tsc -p tsconfig.json","start":"node dist/index.js","test":"node --test dist/index.test.js"},"type":"module","version":"0.1.0"}
