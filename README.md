@@ -19,6 +19,7 @@
 - `tools/`：仓库级脚本，不发布成包。示例：`tools/check-structure.mjs`，校验目录结构。
 - `infra/`：部署与运行配置占位，第一个真实部署进来时再填，不先写死 EC2 或域名。
 - `docs/`：架构与决策记录，见 `docs/architecture.md` 和 `docs/decisions/`；平台六份文档见 `docs/platform-*.md`。
+- `templates/`：可直接复用的整页 HTML UI 模板库，见 `templates/html-ui/README.md`；首个模板为 LLM Transformer 动态讲义页。
 
 ## Step 1：本地跑起来
 
